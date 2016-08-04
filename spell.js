@@ -1,14 +1,18 @@
-var SpellChecker = require('simple-spellchecker');
+var SpellChecker = require('spellchecker');
 
-function spell(input) {
-if(SpellChecker.isMisspelled(word))
-        return `${misspelled}`;
-        if(misspelled) {
-            var suggestions = dictionary.getSuggestions('maisonn');
-            return `${suggestions}`;
+          function spell(input) {
+            console.log(input);
+          if(SpellChecker.isMisspelled(input)) {
+            console.log("Misspelled");
+        //return `${misspelled}`; }
+        
+            var suggest = SpellChecker.getCorrectionsForMisspelling(input);
+            return `${suggest}`;
+        }
+        else{
+          return `Word is spelled correctly`;
         }
     }
-});  
 
-}
+
 module.exports=spell;
